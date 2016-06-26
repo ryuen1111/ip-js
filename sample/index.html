@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script src="./main.js"></script>
+  <script src="../image_processing.js"></script>
+  <style>
+    body {
+      padding-top: 50px;
+    }
+
+    .main {
+      padding: 40px 15px;
+      text-align: center;
+    }
+
+    .row {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    #canvas-input, #canvas-output{
+      width: 100%;
+    }
+  </style>
+  <title>Sample</title>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a href="#" class="navbar-brand">画像処理サンプル</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="main">
+    <div class="row">
+      <div class="col-lg-12 col-md-12">
+        <input type="file" id="select-file" accept='image/*'>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6 col-md-6">
+        <canvas id="canvas-input"></canvas>
+      </div>
+      <div class="col-lg-6 col-md-6">
+        <canvas id="canvas-output"></canvas>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6 col-md-6">
+        <div class="center">
+          入力画像
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6">
+        <div class="center">
+          出力画像
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-3 col-md-3">
+        <p>0.0〜1.0の値を入れる</p>
+        最小: <input type="text" class="contrast-min"><br><br>
+        最大: <input type="text" class="contrast-max">
+      </div>
+      <div class="col-lg-3 col-md-3">
+        <select name="color" id="color-select">
+          <option value="red">赤</option>
+          <option value="orange">オレンジ</option>
+          <option value="yellow">黄色</option>
+          <option value="light-green">黄緑</option>
+          <option value="green">緑</option>
+          <option value="cyan">シアン</option>
+          <option value="blue">青</option>
+          <option value="purple">紫</option>
+          <option value="pink">ピンク</option>
+          <option value="magenta">マゼンタ</option>
+        </select>
+        <br>
+        色幅: <input type="text" id="color-range" value="0.05"><br>
+        彩度調整強さ(1.0でそのまま): <input type="text" id="saturation-c" value="1.2"><br>
+      </div>
+      <div class="col-lg-3 col-md-3">
+        先鋭化強度<br>
+        <input id="sharpening-value" type="text" value="1.0"/>
+      </div>
+      <div class="col-lg-3 col-md-3">
+        フィルタサイズ<br>
+        <input id="smooth-size" type="text" value="3" />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-3 col-md-3">
+        <button type="button" class="contrast btn btn-primary">コントラスト調整</button>
+      </div>
+      <div class="col-lg-3 col-md-3">
+        <button type="button" class="change-saturation btn btn-primary">彩度調整</button>
+      </div>
+      <div class="col-lg-3 col-md-3">
+        <button type="button" class="sharpening btn btn-primary">先鋭化</button>
+      </div>
+      <div class="col-lg-3 col-md-3">
+        <button type="button" class="smooth btn btn-primary">ボカシ処理</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
